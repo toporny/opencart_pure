@@ -10,13 +10,6 @@ class ControllerExtensionModuleMaxQuantityCart extends Controller {
 		$this->load->model('setting/setting');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
-// print "<pre>";
-// print_r( $this->request->post );
-// print "</pre>";
-// exit;
-
-// module_max_quantity_cart
-// module_max_quantity_cart_status
 
 			$this->model_setting_setting->editSetting('module_max_quantity_cart', $this->request->post);
 

@@ -41,7 +41,7 @@
                 <td class="text-center">{{ column_image }}</td>
                 <td class="text-left">{{ column_name }}</td>
                 <td class="text-left">{{ column_model }}</td>
-                {% if max_quantity %}<td class="text-left">{{ column_max_quantity }}</td>{% endif %}
+                {% if max_quantity_status %}<td class="text-left">{{ column_max_quantity }}</td>{% endif %}
                 <td class="text-left">{{ column_quantity }}</td>
                 <td class="text-right">{{ column_price }}</td>
                 <td class="text-right">{{ column_total }}</td>
@@ -63,7 +63,7 @@
                 <span class="label label-info">{{ text_recurring_item }}</span> <small>{{ product.recurring }}</small> {% endif %}</td>
               <td class="text-left">{{ product.model }}</td>
 
-              {% if max_quantity %}<td class="text-left">123</td>{% endif %}
+              {% if max_quantity_status %}<td class="text-left">{{ product.max_quantity }}</td>{% endif %}
 
               <td class="text-left"><div class="input-group btn-block" style="max-width: 200px;">
                   <input type="text" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" size="1" class="form-control" />
