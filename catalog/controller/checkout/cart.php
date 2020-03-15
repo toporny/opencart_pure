@@ -240,6 +240,11 @@ class ControllerCheckoutCart extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
+
+			$this->load->model('setting/setting');
+			$data['max_quantity'] = $this->model_setting_setting->getSettingValue('module_max_quantity_cart_status');
+
+
 			$this->response->setOutput($this->load->view('checkout/cart', $data));
 		} else {
 			$data['text_error'] = $this->language->get('text_empty');
