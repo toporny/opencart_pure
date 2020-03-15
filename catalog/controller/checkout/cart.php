@@ -142,18 +142,10 @@ class ControllerCheckoutCart extends Controller {
 					'reward'    => ($product['reward'] ? sprintf($this->language->get('text_points'), $product['reward']) : ''),
 					'price'     => $price,
 					'total'     => $total,
-					'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id']),
-					'product_id' => $product['product_id']
+					'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id'])
 				);
 			}
 
-
-			$this->load->model('setting/setting');
-			$data['max_quantity_status'] = $this->model_setting_setting->getSettingValue('module_max_quantity_cart_status');
-			if ($data['max_quantity_status'] == 1) {
-				$this->load->model('extension/module/max_quantity_cart');
-				$data['products'] = $this->model_extension_module_max_quantity_cart->putMaxQuantityToProducts($data['products']);
-			}
 			// Gift Voucher
 			$data['vouchers'] = array();
 
@@ -246,7 +238,7 @@ class ControllerCheckoutCart extends Controller {
 			$data['content_top'] = $this->load->controller('common/content_top');
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
-			$data['header'] = $this->load->controller('common/header');			
+			$data['header'] = $this->load->controller('common/header');
 
 			$this->response->setOutput($this->load->view('checkout/cart', $data));
 		} else {
